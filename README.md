@@ -40,16 +40,10 @@ This script automates the process of setting up a fresh Linux system (Ubuntu-bas
 
 ## 🔧 How to Use
 
-1. Download the script:
+1. Download the script by cloning this repo:
 
     ```bash
-    wget https://yourdomain.com/linux-setup.sh
-    ```
-
-    Or clone this repo:
-
-    ```bash
-    git clone https://github.com/yourusername/linux-setup.git
+    git clone https://github.com/seyiobadeyi/linux-setup.git
     cd linux-setup
     ```
 
