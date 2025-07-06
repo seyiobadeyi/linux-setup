@@ -25,9 +25,9 @@ sudo apt install -y htop neofetch ncdu bleachbit
 echo "Installing network tools..."
 sudo apt install -y net-tools nmap traceroute speedtest-cli ufw gufw
 
-# Development Tools
+# Development Tools (excluding nodejs & npm here)
 echo "Installing development tools..."
-sudo apt install -y git vim nano tmux gcc g++ make cmake python3 python3-pip nodejs npm openjdk-17-jdk
+sudo apt install -y git vim nano tmux gcc g++ make cmake python3 python3-pip openjdk-17-jdk
 
 # Optional Dev: Docker, DBs
 echo "Installing optional dev tools..."
@@ -86,9 +86,23 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Homebrew (for Linux)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# NVM
+# NVM & Node (via n)
 echo "Installing NVM..."
+export NVM_DIR="$HOME/.nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Load NVM immediately
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Install Node using nvm
+nvm install --lts
+nvm use --lts
+nvm alias default 'lts/*'
+
+# Install 'n' globally and use it to install latest stable node
+npm install -g n
+sudo n stable
 
 # Done
 echo "Ubuntu setup completed. You may need to reboot for some changes to take effect."
